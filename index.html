@@ -1,268 +1,154 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Arcadia — Minecraft Server</title>
-  <meta name="description" content="Arcadia - Minecraft server community site. Home, Forum, Staffs, Store, Vote, Discord." />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QuantomRealms</title>
+  <link rel="icon" type="image/png" href="owaila.png">
   <style>
-    :root{--accent:#6ee7b7;--dark:#0b1220;--muted:#94a3b8}
-    *{box-sizing:border-box}
-    body{font-family:Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; margin:0; color:#0b1220; background:linear-gradient(180deg,#f8fafc, #e6eef6)}
-    header{background:linear-gradient(90deg,var(--accent),#60a5fa); color:#05232b; padding:14px 20px; position:sticky; top:0; z-index:50; box-shadow:0 4px 18px rgba(2,6,23,0.08)}
-    .nav{display:flex; align-items:center; justify-content:space-between; max-width:1100px; margin:0 auto}
-    .brand{display:flex; align-items:center; gap:12px}
-    .logo{width:44px; height:44px; border-radius:8px; background:rgba(255,255,255,0.35); display:flex; align-items:center; justify-content:center; font-weight:700}
-    nav a{color:#042a2d; text-decoration:none; margin-left:12px; font-weight:600}
-    .cta{background:#05232b; color:var(--accent); padding:8px 12px; border-radius:8px; text-decoration:none; margin-left:12px}
-    main{max-width:1100px; margin:32px auto; padding:0 20px}
-
-    /* Hero */
-    .hero{display:grid; grid-template-columns:1fr 380px; gap:28px; align-items:center}
-    .hero-card{background:white; padding:28px; border-radius:14px; box-shadow:0 6px 30px rgba(6,20,33,0.06)}
-    .server-ip{font-family:monospace; background:#f1f5f9; padding:8px 10px; border-radius:8px; display:inline-block}
-    .status{margin-top:14px; display:flex; gap:12px; align-items:center}
-    .dot{width:10px; height:10px; border-radius:50%}
-    .players{font-weight:700}
-
-    /* Sections */
-    section{margin-top:26px}
-    .grid{display:grid; gap:16px}
-    .cols-3{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
-
-    /* Forum list */
-    .thread{background:white; padding:14px; border-radius:10px; display:flex; gap:12px; align-items:center}
-    .thread .meta{font-size:12px; color:var(--muted)}
-
-    /* Staffs */
-    .staff-card{background:white; padding:16px; border-radius:12px; text-align:center}
-    .avatar{width:74px; height:74px; border-radius:12px; margin:0 auto 12px; background:linear-gradient(135deg,#fde68a,#fca5a5)}
-
-    /* Store */
-    .item{background:white; padding:14px; border-radius:12px}
-    .price{font-weight:800; font-family:monospace}
-
-    /* Footer */
-    footer{max-width:1100px; margin:40px auto; padding:20px; text-align:center; color:var(--muted)}
-
-    /* Responsive */
-    @media (max-width:900px){
-      .hero{grid-template-columns:1fr}
-      nav a{display:none}
-      .menu-toggle{display:inline-flex}
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #0d0d0d;
+      color: #e0e0e0;
     }
-
-    .menu-toggle{display:none; background:rgba(255,255,255,0.12); border-radius:8px; padding:8px}
-
-    /* Simple modal for discord invite */
-    .modal{position:fixed; inset:0; display:none; align-items:center; justify-content:center; background:rgba(3,7,18,0.45)}
-    .modal.open{display:flex}
-    .modal-card{background:white; padding:20px; border-radius:12px; max-width:420px; width:94%}
-
-    a.button{display:inline-block; padding:10px 12px; border-radius:10px; text-decoration:none; font-weight:700}
+    header {
+      background: #1a1a1a;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 2px solid #00bcd4;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+    .logo img {
+      height: 40px;
+      margin-right: 10px;
+      border-radius: 50%;
+    }
+    nav a {
+      color: #e0e0e0;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #00bcd4;
+    }
+    .hero {
+      text-align: center;
+      padding: 100px 20px;
+      background: linear-gradient(to bottom, #0d0d0d, #1a1a1a);
+    }
+    .hero h1 {
+      font-size: 48px;
+      margin: 0;
+      color: #00bcd4;
+    }
+    .hero p {
+      font-size: 20px;
+      margin: 10px 0 20px;
+    }
+    .btn {
+      display: inline-block;
+      padding: 12px 24px;
+      background: #00bcd4;
+      color: #0d0d0d;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 6px;
+      transition: background 0.3s;
+    }
+    .btn:hover {
+      background: #008c9e;
+    }
+    .section {
+      padding: 60px 20px;
+      text-align: center;
+    }
+    .section h2 {
+      font-size: 32px;
+      color: #00bcd4;
+      margin-bottom: 20px;
+    }
+    .staff-list {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+    .staff {
+      background: #1a1a1a;
+      padding: 20px;
+      border-radius: 8px;
+      width: 200px;
+      box-shadow: 0 0 10px rgba(0,188,212,0.3);
+    }
+    .footer {
+      background: #1a1a1a;
+      text-align: center;
+      padding: 20px;
+      border-top: 2px solid #00bcd4;
+      font-size: 14px;
+    }
+    .discord-icon {
+      width: 24px;
+      height: 24px;
+      vertical-align: middle;
+      margin-left: 10px;
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
   <header>
-    <div class="nav">
-      <div class="brand">
-        <div class="logo">A</div>
-        <div>
-          <div style="font-weight:800">Arcadia</div>
-          <div style="font-size:12px;color:rgba(3,7,18,0.6)">Minecraft Survival • IP: <span class="server-ip">play.arcadia.gg</span></div>
-        </div>
-      </div>
-
-      <div style="display:flex; align-items:center">
-        <nav>
-          <a href="#home">Home</a>
-          <a href="#forum">Forum</a>
-          <a href="#staffs">Staffs</a>
-          <a href="#store">Store</a>
-          <a href="#vote">Vote</a>
-          <a href="#discord">Discord</a>
-        </nav>
-        <a class="cta" href="#join">Join</a>
-        <button class="menu-toggle" aria-label="menu" onclick="toggleMobileNav()">☰</button>
-      </div>
+    <div class="logo">
+      <img src="owaila.png" alt="QuantomRealms Logo">
+      <span>QuantomRealms</span>
     </div>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Forum</a>
+      <a href="#">Staffs</a>
+      <a href="#">Store</a>
+      <a href="#">Vote</a>
+      <a href="https://discord.gg/YOURINVITE" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111370.png" 
+             alt="Discord" class="discord-icon">
+      </a>
+    </nav>
   </header>
 
-  <main>
-    <section id="home" class="hero">
-      <div class="hero-card">
-        <h1 style="margin:0 0 8px">Welcome to Arcadia</h1>
-        <p style="margin:0 0 12px; color:var(--muted)">An active survival server with custom economy, events and friendly staff. Join our community and build your legend.</p>
-        <div class="status">
-          <div class="dot" style="background:limegreen"></div>
-          <div>
-            <div class="players">Online: 24 / 150</div>
-            <div class="meta">Uptime: 99.7% • Version: 1.20</div>
-          </div>
-        </div>
+  <section class="hero">
+    <h1>Welcome to QuantomRealms</h1>
+    <p>IP: <strong>QuantomRealms.withermc.io</strong></p>
+    <a href="https://discord.gg/YOURINVITE" target="_blank" class="btn">Join Our Discord</a>
+  </section>
 
-        <div style="margin-top:18px">
-          <a class="button" href="minecraft://?addExternalServer=play.arcadia.gg">Add to Minecraft</a>
-          <a class="button" href="#store" style="margin-left:8px">Shop</a>
-        </div>
-
-        <hr style="margin:18px 0; border:none; height:1px; background:#eef2ff" />
-
-        <h3 style="margin:0 0 6px">Latest News</h3>
-        <ul style="margin:0; padding-left:18px; color:var(--muted)">
-          <li>Summer build contest winners announced.</li>
-          <li>New crates &amp; cosmetics added.</li>
-        </ul>
+  <section class="section">
+    <h2>Our Staff Team</h2>
+    <div class="staff-list">
+      <div class="staff">
+        <h3>Owner</h3>
+        <p>owaila256</p>
       </div>
-
-      <aside style="height:100%;">
-        <div class="hero-card">
-          <h3 style="margin-top:0">Server Info</h3>
-          <p style="margin:0 0 6px; color:var(--muted)"><strong>IP</strong> play.arcadia.gg</p>
-          <p style="margin:0 0 6px; color:var(--muted)"><strong>Players</strong> 24/150</p>
-          <p style="margin:0 0 6px; color:var(--muted)"><strong>Modes</strong> Survival, Events</p>
-          <a class="button" href="#forum" style="margin-top:10px">Visit the Forum</a>
-        </div>
-      </aside>
-    </section>
-
-    <section id="forum">
-      <h2>Forum</h2>
-      <p style="color:var(--muted); margin-top:4px">Community discussions — ask for help, share builds, or post suggestions.</p>
-
-      <div class="grid cols-3" style="margin-top:12px">
-        <div class="thread">
-          <div style="width:48px; height:48px; border-radius:8px; background:#e0f2fe"></div>
-          <div style="flex:1">
-            <div style="font-weight:700">How to get started in Arcadia</div>
-            <div class="meta">by Sam • 3 replies • 2 days ago</div>
-          </div>
-        </div>
-
-        <div class="thread">
-          <div style="width:48px; height:48px; border-radius:8px; background:#fef3c7"></div>
-          <div style="flex:1">
-            <div style="font-weight:700">Looking for a faction</div>
-            <div class="meta">by Pixel • 10 replies • 5 days ago</div>
-          </div>
-        </div>
-
-        <div class="thread">
-          <div style="width:48px; height:48px; border-radius:8px; background:#ecfccb"></div>
-          <div style="flex:1">
-            <div style="font-weight:700">Suggestion: More minigames</div>
-            <div class="meta">by Viro • 6 replies • 8 days ago</div>
-          </div>
-        </div>
+      <div class="staff">
+        <h3>Developer</h3>
+        <p>Sebastian</p>
       </div>
-
-      <p style="margin-top:12px"><a href="#" class="button">Open Full Forum (Placeholder)</a></p>
-    </section>
-
-    <section id="staffs">
-      <h2>Staffs</h2>
-      <p style="color:var(--muted); margin-top:4px">Meet the team who keep the server running.</p>
-
-      <div class="grid cols-3" style="margin-top:12px">
-        <div class="staff-card">
-          <div class="avatar"></div>
-          <div style="font-weight:800">Owaila256</div>
-          <div style="color:var(--muted); font-size:13px">Owner</div>
-        </div>
-
-        <div class="staff-card">
-          <div class="avatar" style="background:linear-gradient(135deg,#c7f9ff,#bfe7fd)"></div>
-          <div style="font-weight:800">PixelPro</div>
-          <div style="color:var(--muted); font-size:13px">Admin</div>
-        </div>
-
-        <div class="staff-card">
-          <div class="avatar" style="background:linear-gradient(135deg,#ffd6e0,#ffd8a8)"></div>
-          <div style="font-weight:800">ModJane</div>
-          <div style="color:var(--muted); font-size:13px">Moderator</div>
-        </div>
+      <div class="staff">
+        <h3>Developer</h3>
+        <p>matskie</p>
       </div>
-    </section>
-
-    <section id="store">
-      <h2>Store</h2>
-      <p style="color:var(--muted); margin-top:4px">Support the server — cosmetic items, ranks, and keys.</p>
-
-      <div class="grid cols-3" style="margin-top:12px">
-        <div class="item">
-          <div style="font-weight:800">VIP Rank</div>
-          <div style="color:var(--muted); margin:6px 0">Perks: /fly, rank tag, kit</div>
-          <div class="price">PHP 150</div>
-          <p style="margin-top:8px"><a href="#" class="button">Buy</a></p>
-        </div>
-
-        <div class="item">
-          <div style="font-weight:800">Mystery Key (x1)</div>
-          <div style="color:var(--muted); margin:6px 0">Opens cosmetic crates</div>
-          <div class="price">PHP 35</div>
-          <p style="margin-top:8px"><a href="#" class="button">Buy</a></p>
-        </div>
-
-        <div class="item">
-          <div style="font-weight:800">Server Boost Pack</div>
-          <div style="color:var(--muted); margin:6px 0">Global perks for 7 days</div>
-          <div class="price">PHP 300</div>
-          <p style="margin-top:8px"><a href="#" class="button">Buy</a></p>
-        </div>
-      </div>
-
-      <p style="margin-top:12px; color:var(--muted)">Note: This store is a placeholder. Replace the buy links with your payment gateway (Tebex, PayPal, or PayMaya).</p>
-    </section>
-
-    <section id="vote">
-      <h2>Vote</h2>
-      <p style="color:var(--muted); margin-top:4px">Help us grow — vote on server listing sites and earn rewards.</p>
-
-      <div style="display:flex; gap:12px; margin-top:12px; flex-wrap:wrap">
-        <a href="#" class="button">TopMinecraftServers</a>
-        <a href="#" class="button">Minecraft-MP</a>
-        <a href="#" class="button">Planet Minecraft</a>
-      </div>
-
-      <p style="margin-top:12px; color:var(--muted)">Tip: Give players rewards (coins, keys) when they vote. Integrate voting plugins (Votifier + Votifier network) server-side.</p>
-    </section>
-
-    <section id="discord">
-      <h2>Discord</h2>
-      <p style="color:var(--muted); margin-top:4px">Join our Discord community for announcements, support and events.</p>
-      <div style="margin-top:12px">
-        <a href="#" class="button" onclick="openInvite(event)">Join Discord</a>
-      </div>
-    </section>
-
-    <footer>
-      <div>© Arcadia • Built with ❤️ • <small style="color:var(--muted)">Host on GitHub Pages: push this index.html to your repo and enable Pages.</small></div>
-    </footer>
-
-  </main>
-
-  <div id="modal" class="modal" onclick="closeModal(event)">
-    <div class="modal-card">
-      <h3>Discord Invite</h3>
-      <p style="color:var(--muted)">Click the button below to open the invite (placeholder link).</p>
-      <p style="text-align:right;"><a href="https://discord.gg/your-invite" target="_blank" class="button">Open Discord</a></p>
     </div>
-  </div>
+  </section>
 
-  <script>
-    function openInvite(e){
-      e.preventDefault();
-      document.getElementById('modal').classList.add('open');
-    }
-    function closeModal(e){
-      if(e.target.classList.contains('modal')) document.getElementById('modal').classList.remove('open');
-    }
-    function toggleMobileNav(){
-      const nav = document.querySelector('nav');
-      if(nav.style.display === 'block') nav.style.display=''; else nav.style.display='block';
-    }
-
-    // Placeholder: You can replace static bits with real data using JS fetch to your server/api.
-  </script>
+  <footer class="footer">
+    &copy; 2025 QuantomRealms. All rights reserved.
+  </footer>
 </body>
 </html>
